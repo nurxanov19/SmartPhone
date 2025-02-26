@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ car.make }} {{ car.model }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .car-img {
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        .car-title {
+            text-align: center;
+            font-size: 28px;
+            margin: 10px 0;
+        }
+        .price {
+            font-size: 22px;
+            color: #d9534f;
+            font-weight: bold;
+            text-align: center;
+        }
+        .details {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .details p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        .description {
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 16px;
+            background: #e3e3e3;
+            border-radius: 5px;
+        }
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 150px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .back-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+      {% if phones.image %}
+    <img src="{{ phones.image.url }}" class="phones-img"
+         onerror="this.onerror=null; this.src='https://via.placeholder.com/800x400?text=No+Image';">
+    {% else %}
+        <img src="media/default.png" class="phones-img">
+    {% endif %}
+
+
+
+    <h1 class="phone-title">{{ phones.brand }} {{ phones.model }}</h1>
+    <p class="price">Price: ${{ phones.price }}</p>
+
+    <div class="details">
+        <h3>Texnik xususiyatlari:</h3>
+        <p><strong>Yili:</strong> {{ phones.year }}</p>
+        <p><strong>Rang:</strong> {{ phones.color }}</p>
+        <p><strong>Oxirgi yangilanish:</strong> {{ phones.updated_at|date:"d-m-Y H:i" }}</p>
+    </div>
+
+    <div class="description">
+        <h3>Qo‘shimcha ma’lumot:</h3>
+        <p>{{ phones.description }}</p>
+    </div>
+
+    <a href="{% url 'phone-list' %}" class="back-btn">⬅️ Orqaga</a>
+</div>
+
+</body>
+</html>

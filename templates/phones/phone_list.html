@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphones</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .car-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .car {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .car img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer; /* Rasm ustiga bosish mumkinligini bildiradi */
+        }
+        .car h3 {
+            margin: 10px 0;
+        }
+        .car p {
+            font-size: 16px;
+            color: #444;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    🚗 Avtosalon - Bizning Avtomobillar
+</header>
+
+<div class="container">
+    <div class="phone-list">
+        {% for phone in phones %}
+        <div class="phone">
+                {% if phone.image %}
+            <a href="{% url 'phone-detail' phone.id %}">
+
+                <img src="{{ phones.image.url }}">  </a>
+                {% else %}
+            <a href="{% url 'phone-detail' car.id %}">
+                <img src="media/s24ultra.jpeg">
+                {% endif %}
+            </a>
+            <h3>Brand: {{ phone.brand }} | Model: {{ phone.model }}</h3>
+            <p>Narx: ${{ phone.price }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>
