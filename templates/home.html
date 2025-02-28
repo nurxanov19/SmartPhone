@@ -1,42 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avtomobillar</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .contact {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact h2 {
+            margin-top: 0;
+        }
+
+        .contact p {
+            margin: 5px 0;
+        }
+        .header-link{
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .header-link a{
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
 <body>
 
-    <div class="container">
-
-        <div class="product">
-            <img src="phones.image" alt="iPhone 15">
-            <div class="product-details">
-                <h2>iPhone 15 Pro</h2>
-                <div class="price">$999</div>
-                <div class="description">Latest iPhone with A17 Bionic chip, Super Retina XDR display, and advanced camera system.</div>
-                <button class="buy-button">Buy Now</button>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="media/phone_image/s24ultra.jpeg" alt="Samsung Galaxy S24 Ultra">
-            <div class="product-details">
-                <h2>Samsung Galaxy S24 Ultra</h2>
-                <div class="price">$1199</div>
-                <div class="description">Powerful Android phone with Snapdragon 8 Gen 2 processor, Dynamic AMOLED 2X display, and S Pen.</div>
-                <button class="buy-button">Buy Now</button>
-            </div>
-        </div>
-
-        <div class="product">
-            <img src="media/phone_image/opporeno.jpeg" alt="Oppo Reno">
-            <div class="product-details">
-                <h2>Oppo Reno</h2>
-                <div class="price">$599</div>
-                <div class="description">Stylish and feature-packed phone with a great camera system and long battery life.</div>
-                <button class="buy-button">Buy Now</button>
-            </div>
-        </div>
-
+<div class="container">
+    <div class="header-link">
+        <a href="/phone-list">Our Products</a>
     </div>
 
-    </body>
+
+    <div class="contact">
+        <h2>Contact us</h2>
+        <p>Phone: +998 90 123 45 67</p>
+        <p>Address: Manhattan, Wolves street, 15</p>
+    </div>
+</div>
+
+</body>
 </html>

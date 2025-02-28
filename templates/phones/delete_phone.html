@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete phone</title>
+</head>
+
+<body>
+<h2>Do you really want to delete {{phone.brand}} {{phone.model}}</h2>
+
+<form method="post" action="{% url 'delete-phone' phone.pk %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger"> Yes</button>
+    <a href="{% url 'phone-detail' phone.pk %}" class="btn btn-secondary">No</a>
+</form>
+
+
+<!--<a href="{% url 'delete-phone' phone.pk %}">Yes</a>-->
+
+</body>
+</html>

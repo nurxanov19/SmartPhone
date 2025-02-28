@@ -1,87 +1,105 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smartphones</title>
+    <title>Smartphone Deals</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            color: #333;
         }
-        header {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            font-size: 24px;
-        }
+
         .container {
-            width: 90%;
             max-width: 1200px;
-            margin: auto;
+            margin: 20px auto;
             padding: 20px;
         }
-        .car-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .car {
-            background: white;
-            padding: 15px;
+
+        .phone-card {
+            background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
         }
-        .car img {
+
+        .phone-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .phone-image {
+            flex: 0 0 150px;
+            margin-right: 20px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .phone-image img {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            cursor: pointer; /* Rasm ustiga bosish mumkinligini bildiradi */
+            display: block;
+            object-fit: cover;
         }
-        .car h3 {
-            margin: 10px 0;
+
+        .phone-details {
+            flex: 1;
         }
-        .car p {
-            font-size: 16px;
-            color: #444;
+
+        .phone-details h2 {
+            margin-top: 0;
+            color: #007bff;
         }
-        a {
-            text-decoration: none;
-            color: inherit;
+
+        .phone-details p {
+            margin: 5px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .phone-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .phone-image {
+                margin-right: 0;
+                margin-bottom: 10px;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
-
-<header>
-    🚗 Avtosalon - Bizning Avtomobillar
-</header>
-
-<div class="container">
-    <div class="phone-list">
+<a href="{% url 'create-phone' %}">Create Phone</a>
+<a href="{% url 'create-phone2' %}">Create Phones in another function</a>
+    <div class="container">
         {% for phone in phones %}
-        <div class="phone">
+        <div class="phone-card">
+            <a href="/phone/{{ phone.pk }}" class="phone-image">
                 {% if phone.image %}
-            <a href="{% url 'phone-detail' phone.id %}">
-
-                <img src="{{ phones.image.url }}">  </a>
+                <img src="{{ phone.image.url }}" alt="{{ phone.brand }} {{ phone.model }}">
                 {% else %}
-            <a href="{% url 'phone-detail' car.id %}">
-                <img src="media/s24ultra.jpeg">
+                <img src="placeholder.jpg" alt="Placeholder">
                 {% endif %}
             </a>
-            <h3>Brand: {{ phone.brand }} | Model: {{ phone.model }}</h3>
-            <p>Narx: ${{ phone.price }}</p>
+            <div class="phone-detail">
+                <h2>{{ phone.brand }} {{ phone.model }}</h2>
+                <p><strong>Price:</strong> {{ phone.price }}</p>
+                <p><strong>Storage:</strong> {{ phone.storage }}</p>
+                <p><strong>Color:</strong> {{ phone.color }}</p>
+                <p><strong>Description:</strong> {{ phone.description }}</p>
+            </div>
         </div>
         {% endfor %}
     </div>
-</div>
-
+<a href="{% url 'home' %}" class="back-btn">⬅️ Back to Home Page</a>
 </body>
 </html>
