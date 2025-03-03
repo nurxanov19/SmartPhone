@@ -89,7 +89,7 @@
 
     <div class="details">
         <h3>Technical parameters:</h3>
-        <p><strong>Memory:</strong> {{ phone.storage }}</p>
+        <p><strong>Year:</strong> {{ phone.year }}</p>
         <p><strong>Color:</strong> {{ phone.color }}</p>
         <p><strong>Last update:</strong> {{ phone.updated_at|date:"d-m-Y H:i" }}</p>
     </div>
@@ -100,10 +100,13 @@
     </div>
 
     <a href="{% url 'phone-list' %}" class="back-btn">⬅️ Back to phones</a>
-    <a href="{% url 'update-phone' phone.id %}" class="back-btn">⬅️ Update</a>
+    <a href="{% url 'update-phone-form' phone.id %}" class="back-btn">⬅️ Update</a>
     <a href="{% url 'delete-phone' phone.id %}" class="back-btn">⬅️ Delete</a>
 
 </div>
 
 </body>
+
+
+
 </html>

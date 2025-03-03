@@ -13,7 +13,7 @@ class SmartPhone(Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='phone_image/', blank=True, null=False)       # upload_to >> qaysi adresga yuklashini belgilash
+    image = models.ImageField(upload_to='phone_image/', default='default.png', blank=True, null=False)       # upload_to >> qaysi adresga yuklashini belgilash
 
 
     class Meta:

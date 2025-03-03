@@ -78,8 +78,9 @@
     </style>
 </head>
 <body>
-<a href="{% url 'create-phone' %}">Create Phone</a>
-<a href="{% url 'create-phone2' %}">Create Phones in another function</a>
+<a href="{% url 'create-phone' %}">Create Phone</a><br>
+<a href="{% url 'create-phone2' %}">Create Phones in another function</a><br>
+<a href="{% url 'phone-form' %}">Create Phones with Django form</a>
     <div class="container">
         {% for phone in phones %}
         <div class="phone-card">
@@ -93,7 +94,7 @@
             <div class="phone-detail">
                 <h2>{{ phone.brand }} {{ phone.model }}</h2>
                 <p><strong>Price:</strong> {{ phone.price }}</p>
-                <p><strong>Storage:</strong> {{ phone.storage }}</p>
+                <p><strong>Country:</strong> {{ phone.country }}</p>
                 <p><strong>Color:</strong> {{ phone.color }}</p>
                 <p><strong>Description:</strong> {{ phone.description }}</p>
             </div>
